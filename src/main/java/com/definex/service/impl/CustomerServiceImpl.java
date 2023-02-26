@@ -122,6 +122,6 @@ public class CustomerServiceImpl implements CustomerService {
 
         log.info("credit score calculated");
 
-        return rand.nextInt(1000 - Math.min(startCreditScore, 250)) + startCreditScore;
+        return rand.nextInt(1000) + Math.min(startCreditScore, 350);
     }
 }
