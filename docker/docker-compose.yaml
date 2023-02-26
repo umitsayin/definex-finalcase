@@ -1,0 +1,26 @@
+version: "3.9"
+services:
+  db:
+    image: mysql:latest
+    container_name: mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: definex
+      MYSQL_DATABASE: definex
+    ports:
+      - "3306:3306"
+    networks:
+      - definex-network
+  definex-app:
+    restart: always
+    build: ../
+    ports:
+      - 8080:8080
+    networks:
+      - definex-network
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/definex
+      SPRING_DATASOURCE_USERNAME: root
+      SPRING_DATASOURCE_PASSWORD: definex
+networks:
+  definex-network:
+    driver: bridge
