@@ -1,12 +1,12 @@
 # Definex Assigment
 
-## Setup
+### Setup
 ### docker/docker-compose file work this code: 
 
 ``` docker-compose up -d ```
 
-Project maps: 
-![image](https://user-images.githubusercontent.com/69505917/221434458-9f60b53a-300e-4929-b67c-d09cb606f9af.png)
+Project layers: 
+![Screenshot 2023-02-26 at 23 08 29](https://user-images.githubusercontent.com/69505917/221434514-945d6feb-b84c-403b-b70a-5ec236fd737b.png)
 
 ## Unit Test Results: 
 
