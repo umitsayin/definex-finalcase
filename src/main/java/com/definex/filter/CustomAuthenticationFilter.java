@@ -1,6 +1,6 @@
 package com.definex.filter;
 
-import com.definex.config.SecurityConstant;
+import com.definex.constant.SecurityConstant;
 import com.definex.util.helper.JwtHelper;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.http.MediaType;

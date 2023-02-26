@@ -1,4 +1,4 @@
-package com.definex.config;
+package com.definex.constant;
 
 public final class SecurityConstant {
 
