@@ -7,6 +7,8 @@
 ### Project layers: 
 ![Screenshot 2023-02-26 at 23 08 29](https://user-images.githubusercontent.com/69505917/221434514-945d6feb-b84c-403b-b70a-5ec236fd737b.png)
 
+### Security: Spring security with JWT - (Authentication & Authorization)
+
 ## Unit Test Results: 
 
 <img width="898" alt="Screenshot 2023-02-26 at 23 04 26" src="https://user-images.githubusercontent.com/69505917/221434247-6d2ac694-a839-4caf-ac9d-510aae6bb19f.png">
