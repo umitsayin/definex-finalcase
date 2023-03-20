@@ -12,6 +12,7 @@ import java.util.List;
 import java.util.UUID;
 
 public interface CustomerService {
+    DataResponse<List<CustomerDto>> getAll();
     DataResponse<CustomerDto> createCustomer(CustomerPostRequest customerPostRequest);
     DataResponse<CustomerDto> updateCustomerById(String customerId, CustomerPutRequest customerPutRequest);
     BaseResponse deleteCustomerById(String customerId);

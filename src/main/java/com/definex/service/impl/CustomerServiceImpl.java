@@ -44,6 +44,16 @@ public class CustomerServiceImpl implements CustomerService {
     }
 
     @Override
+    public DataResponse<List<CustomerDto>> getAll(){
+        List<Customer> customerList = customerRepository.findAll();
+        List<CustomerDto> customerDtoList = customerList.stream()
+                .map(customer -> modelMapper.map(customer,CustomerDto.class))
+                .collect(Collectors.toList());
+
+        return new SuccessDataResponse<>("Customer listed.",customerDtoList);
+    }
+
+    @Override
     public DataResponse<CustomerDto> createCustomer(CustomerPostRequest customerPostRequest) {
         final User user = systemHelper.getCurrentUser();
         final List<Collateral> collaterals = customerPostRequest.getCollaterals().stream()
