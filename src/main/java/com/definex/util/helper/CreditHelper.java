@@ -22,7 +22,7 @@ public class CreditHelper {
                 && customer.getSalary() < GlobalConstant.MIDDLE_SALARY_TL){
 
             credit = createCreditByCreditAmount(GlobalConstant.SMALL_QUANTITY_LOAN_AMOUNT
-                    + totalCollateralPrice * 0.1, systemHelper);
+                    + totalCollateralPrice * 0.1, customer, systemHelper);
 
         }else if(customer.getCreditScore() >= GlobalConstant.VALID_MINIMUM_CREDIT_LIMIT
                 && customer.getCreditScore() < GlobalConstant.VALID_MAXIMUM_CREDIT_LIMIT
@@ -30,7 +30,7 @@ public class CreditHelper {
                 && customer.getSalary() < GlobalConstant.HIGH_SALARY_TL){
 
             credit = createCreditByCreditAmount(GlobalConstant.MEDIUM_QUANTITY_LOAN_AMOUNT
-                    + totalCollateralPrice * 0.20 , systemHelper);
+                    + totalCollateralPrice * 0.20 , customer, systemHelper);
 
         }
         else if(customer.getCreditScore() >= GlobalConstant.VALID_MINIMUM_CREDIT_LIMIT
@@ -38,11 +38,11 @@ public class CreditHelper {
                 && customer.getSalary() >= GlobalConstant.HIGH_SALARY_TL){
 
             credit = createCreditByCreditAmount((customer.getSalary()
-                    * GlobalConstant.CREDIT_LIMIT_MULTIPLIER) / 2 + totalCollateralPrice * 0.25, systemHelper);
+                    * GlobalConstant.CREDIT_LIMIT_MULTIPLIER) / 2 + totalCollateralPrice * 0.25, customer, systemHelper);
 
         }else if(customer.getCreditScore() >= GlobalConstant.VALID_MAXIMUM_CREDIT_LIMIT){
             credit = createCreditByCreditAmount(customer.getSalary()
-                            * GlobalConstant.CREDIT_LIMIT_MULTIPLIER + totalCollateralPrice * 0.5, systemHelper);
+                            * GlobalConstant.CREDIT_LIMIT_MULTIPLIER + totalCollateralPrice * 0.5, customer, systemHelper);
         }else{
             throw new CreditNotIdentifiedException(GlobalConstant.CREDIT_NOT_IDENTIFIED);
         }
@@ -50,10 +50,11 @@ public class CreditHelper {
         return credit;
     }
 
-    private Credit createCreditByCreditAmount(double creditAmount, SystemHelper systemHelper){
+    private Credit createCreditByCreditAmount(double creditAmount, Customer customer, SystemHelper systemHelper){
         return Credit.builder()
                 .creditAmount(creditAmount)
                 .currency(GlobalConstant.CURRENCY)
+                .customer(customer)
                 .customerRepresentative(systemHelper.getCurrentUser())
                 .build();
     }

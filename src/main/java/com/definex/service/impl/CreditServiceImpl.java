@@ -66,8 +66,7 @@ public class CreditServiceImpl implements CreditService {
     @Override
     public DataResponse<List<CreditDto>> getCreditByCustomerIdentityNumberAndCustomerDateOfBirth(CreditInquiryRequest request) {
         final List<Credit> credits =
-                creditRepository.findCreditByCustomerIdentityNumberAndCustomerDateOfBirth(request.getIdentityNumber(),
-                                request.getDateOfBirth())
+                creditRepository.findCreditByCustomerIdentityNumberAndCustomerDateOfBirth(request.getIdentityNumber(), request.getDateOfBirth())
                         .orElseThrow(()-> new EntityNotFoundException(GlobalConstant.CREDIT_NOT_FOUND));
 
         final List<CreditDto> creditDtoList =  credits.stream()
