@@ -65,11 +65,14 @@ class CustomerServiceImplTest {
         collateralRequest.setCurrency("TL");
         collateralRequest.setPrice(400000);
 
+        List<CustomerCollateralRequest> customerCollateralRequests = new ArrayList<>();
+        customerCollateralRequests.add(collateralRequest);
+
         CustomerPostRequest customerPostRequest = new CustomerPostRequest();
         customerPostRequest.setIdentityNumber("1111111");
         customerPostRequest.setFirstname("Ümit");
         customerPostRequest.setLastname("Sayın");
-        customerPostRequest.setCollaterals(List.of(collateralRequest));
+        customerPostRequest.setCollaterals(customerCollateralRequests);
         customerPostRequest.setSalary(7000);
 
         Customer customer = new Customer();
@@ -121,10 +124,11 @@ class CustomerServiceImplTest {
         collateral.setPrice(400000);
         collateralList.add(collateral);
 
+        List<CustomerCollateralRequest> customerPutRequests = new ArrayList<>();
+        customerPutRequests.add(collateralRequest);
         CustomerPutRequest customerPutRequest = new CustomerPutRequest();
-        customerPutRequest.setCollaterals(List.of(collateralRequest));
+        customerPutRequest.setCollaterals(customerPutRequests);
         customerPutRequest.setSalary(7000);
-        customerPutRequest.setCollaterals(List.of(collateralRequest));
 
         Customer customer = new Customer();
         customer.setIdentityNumber("1111111");

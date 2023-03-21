@@ -70,6 +70,7 @@ class CreditServiceImplTest {
         credit.setCustomerRepresentative(user);
         credit.setCreditAmount(GlobalConstant.MEDIUM_QUANTITY_LOAN_AMOUNT
                 + totalCollateralPrice * 0.20);
+        credit.setCustomer(customer);
 
         AuthorizedPersonDto authorizedPersonDto = new AuthorizedPersonDto();
         authorizedPersonDto.setFirstname("test firstname");
